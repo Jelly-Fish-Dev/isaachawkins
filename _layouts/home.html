@@ -1,0 +1,24 @@
+---
+layout: default
+home: true
+---
+
+<h3 class="posts-item-note" aria-label="Projects">Projects</h3>
+{% for project in site.projects  -%}
+  <h4>
+    <a href="{{project.url}}">{{project.title | escape}}</a>
+  </h4>
+  <h5>
+    <b> {{project.awards}} </b>
+  </h5>
+  <p>{{project.description}}</p>
+{%- endfor -%}
+<h3 class="posts-item-note" aria-label="Recent Posts">Recent Posts</h3>
+{%- for post in site.posts limit: site.number_of_posts -%}
+<article class="post-item">
+  <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+  <h4 class="post-item-title">
+    <a href="{{ post.url }}">{{ post.title | escape }}</a>
+  </h4>
+</article>
+{%- endfor -%}
